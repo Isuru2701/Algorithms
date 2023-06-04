@@ -1,12 +1,13 @@
  class base {
     public static void main(String[] args) {
         SinglyLinkedList list = new SinglyLinkedList(0);
-        list.deleteHead();
+        // list.deleteHead();
         list.append(50);
         list.append(30);
         list.append(10);
-        list.deleteTail();
+        //list.deleteTail();
         list.print();
+        System.out.println(list.size());
     }    
 }
 
@@ -104,5 +105,15 @@ class SinglyLinkedList {
 
     public void deleteAfter(Node node) {
         node.nextNode = node.nextNode.nextNode;
+    }
+
+    public int size(){
+        Node current = head;
+        int size = 0;
+        while(current != null) {
+            size ++;
+            current = current.nextNode;
+        }
+        return size;
     }
 }
